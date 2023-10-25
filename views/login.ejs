@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply a background color to the body */
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the header */
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* Style the navigation bar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            padding-right: 20px;
+        }
+
+        .nav-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        /* Style the form container */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style form labels and inputs */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Style error messages */
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        /* Style the submit button */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Make the form responsive */
+        @media screen and (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- You can replace "Your Logo" with your actual logo image -->
+        <img src="data:image/png;base64,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" alt="Your Logo" width="70" height="50">
+        <button class="nav-button" onclick="window.location.href='/admin-login'">Admin Login</button>
+    </div>
+    <h1>Login</h1>
+    <form method="post" action="/login">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+        <% if (typeof emailError !== 'undefined') { %>
+            <p class="error"><%= emailError %></p>
+        <% } %>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <% if (typeof passwordError !== 'undefined') { %>
+            <p class="error"><%= passwordError %></p>
+        <% } %>
+
+        <input type="submit" value="Login">
+        <% if (typeof error !== 'undefined') { %>
+            <p class="error"><%= error %></p>
+        <% } %><br><br>
+        Don't have an account? <a href="/signin">Sign In</a>
+    </form>
+</body>
+</html>

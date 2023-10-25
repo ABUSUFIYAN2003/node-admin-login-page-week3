@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      ul.nav {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+      }
+
+      li.nav-item {
+        margin: 0 10px;
+      }
+
+      a.nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      a.nav-link:hover {
+        text-decoration: underline;
+      }
+
+      button.nav-button {
+        background-color: rgb(42, 165, 138);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button.nav-button:hover {
+        background-color: rgb(216, 37, 201);
+      }
+
+      h3 {
+        color: rgb(42, 165, 138);
+      }
+
+      p.username {
+        color: rgb(216, 37, 201);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">
+            <%= username %>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-button" onclick="location.href='/'">Sign Out</button>
+        </li>
+      </ul>
+    </header>
+    <div style="padding-top: 20%;"></div>
+    <center>
+      <h3>Welcome <p class="username"><%= username %></p></h3>
+    </center>
+  </body>
+</html>
